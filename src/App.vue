@@ -40,4 +40,20 @@ export default {
     }
   }
 
+  .simplebar-track.simplebar-vertical {
+      width: 4px;
+      right: 13px;
+      background-color: #E1E1E1;
+      border-radius: 50px;
+      margin-bottom: -6px;
+      margin-top: -6px;
+  }
+  .simplebar-scrollbar {
+      background-color: #A8A8A8;
+      border-radius: 50px;
+  }
+  .simplebar-content{
+      min-height:100%;
+  }
+
 </style>

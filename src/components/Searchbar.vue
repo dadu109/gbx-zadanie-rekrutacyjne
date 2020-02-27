@@ -24,6 +24,17 @@ export default {
         title:{
             type:String,
             required:true
+        },
+        fetchData:{
+            type:Function,
+        },
+        fetching:{
+            type:Boolean,
+        }
+    },
+    methods:{
+        onSubmit: function(){
+            this.fetchData(this.username)
         }
     }
 }
