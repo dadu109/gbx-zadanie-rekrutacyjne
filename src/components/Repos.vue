@@ -1,10 +1,9 @@
 <template>
     <simplebar data-simplebar-auto-hide="false" class="wrapper">
         <div v-if="fetching" class="loader">loading</div>
-        <div class="repos" v-for="repo in repos" :key="repo.url">
-            <div class="repo">
-                {{repo}}
-            </div>
+        <div v-if="errorInfo" class="errorInfo"><span>{{errorInfo}}</span></div>
+        <div v-if="!errorInfo&&!fetching" class="repos">
+            <Repo v-for="repo in repos" :key="repo.url" :repo="repo"></Repo>
         </div>
     </simplebar>
 </template>
@@ -12,6 +11,7 @@
 <script>
 import simplebar from 'simplebar-vue';
 import 'simplebar/dist/simplebar.min.css';
+import Repo from './Repo.vue'
 
 export default {
     name:"Repos",
@@ -27,12 +27,23 @@ export default {
         }
     }, 
     components:{
+        Repo,
         simplebar,
     },
 }
 </script>
 
 <style lang="scss" scoped>
+    .errorInfo{
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        height:500px;
+        span{
+            color:#002BDC;
+            font-size: 20px;
+        }
+    }
     .wrapper{
         border-radius: 10px;
         margin-top: 25px;
@@ -45,7 +56,9 @@ export default {
         align-items: center;
         box-shadow: 1px 0px 16px rgba(0, 0, 0, 0.17);
     }
-    .repo{
-        margin:70px 0;
+    .repos{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
     }
 </style>
