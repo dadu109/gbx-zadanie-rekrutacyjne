@@ -1,3 +1,5 @@
+## Live version: https://dawid-miczek-gbxsoft.netlify.com/
+
 # gbx-zadanie-rekrutacyjne
 
 ## Project setup
